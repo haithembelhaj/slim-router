@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>Test RouterJs</title>
+	<!-- jQuery --> 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
+	<!-- History.js --> 
+	<script src="http://balupton.github.com/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
+	<!-- Routerjs --> 
+	<script src="Router.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="log"></div>
+<script>
+	var router = new Router();
+
+	router.route('posts/:id/p:page', function(id,page){
+		$('div#log').html("Route posts/:id triggered with argument "+id+" "+page);
+	})
+
+	router.route('list/*path', function(path){
+		$('div#log').html("Route list/*path triggered with argument "+path);
+	})
+</script>
+<button type="button" onclick='router.navigate("posts/first_post/p12");'>posts/first_post/p12</button>
+<button type="button" onclick='router.navigate("list/files/all");'>list/files/all</button>
+
+</body>
+</html>
