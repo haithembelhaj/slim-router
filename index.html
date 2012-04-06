@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Routerjs : A Javascript Router based on History.js" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Routerjs</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/haithembelhaj/RouterJs">Fork Me on GitHub</a>
+
+          <h1 id="project_title">Routerjs</h1>
+          <h2 id="project_tagline">A Javascript Router based on History.js</h2>
+
+          <section id="downloads">
+            <a class="zip_download_link" href="https://github.com/haithembelhaj/RouterJs/zipball/master">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="https://github.com/haithembelhaj/RouterJs/tarball/master">Download this project as a tar.gz file</a>
+          </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>RouterJs: easy routing for your ajax Web applications</h1>
+
+<p>RouterJs is a simple router for your ajax web apps. It's build upon <a href="https://github.com/balupton/History.js/">History.js</a> which means that RouterJs supports the HTML5 History Api with a fragment fallback for HTML4 browsers. Highly inspired by the Backbone Router it also supports passing parameters with <code>:param</code> and splat parts with *splat`</p>
+
+<h1>Usage</h1>
+
+<pre><code>//Instanciate the router
+var router = new Router();
+
+//Define some routes with their respective callback function
+router.route('posts/:id', function(id){ console.log(id)});
+router.route('route/*path', function(path){ console.log(path)});
+
+/* 
+* Navigate to route
+* the navigate method takes two extra argument trigger and replace
+* trigger is by default true and replace is by default false
+*/
+
+router.navigate('posts/22');
+router.navigate('posts/23', false); //ommit calling the callback
+router.navigate('route/to/heaven', true, false); //just replace without history traceback
+
+//Navigate throught the History
+
+router.go(2); //forward navigation
+router.go(-3); //backward navigation
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Routerjs maintained by <a href="https://github.com/haithembelhaj">haithembelhaj</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
