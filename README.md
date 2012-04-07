@@ -13,7 +13,7 @@
 
 	/* 
 	* Navigate to route
-	* the navigate method takes two extra argument trigger and replace
+	* the navigate method takes two extra arguments trigger and replace
 	* trigger is by default true and replace is by default false
 	*/
 

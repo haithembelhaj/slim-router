@@ -14,7 +14,7 @@
 	var router = new Router();
 
 	router.route('posts/:id/p:page', function(id,page){
-		$('div#log').html("Route posts/:id triggered with argument "+id+" "+page);
+		$('div#log').html("Route posts/:id/p:page triggered with argument "+id+" "+page);
 	})
 
 	router.route('list/*path', function(path){
