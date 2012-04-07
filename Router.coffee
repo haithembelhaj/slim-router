@@ -30,11 +30,12 @@ class window.Router
 		@trigger = true
 
 	navigate : (url, trigger=true, replace=false)->
+		url = "/"+url
 		@trigger = trigger
 		if replace 
-			History.replaceState null, "/"+url, url
+			History.replaceState null, url, url
 		else
-			History.pushState null, "/"+url, url
+			History.pushState null, url, url
 
 	go: (num)->
 		History.go num

@@ -43,11 +43,12 @@ window.Router = (function() {
   Router.prototype.navigate = function(url, trigger, replace) {
     if (trigger == null) trigger = true;
     if (replace == null) replace = false;
+    url = "/" + url;
     this.trigger = trigger;
     if (replace) {
-      return History.replaceState(null, "/" + url, url);
+      return History.replaceState(null, url, url);
     } else {
-      return History.pushState(null, "/" + url, url);
+      return History.pushState(null, url, url);
     }
   };
 
