@@ -16,7 +16,6 @@ window.Router = (function() {
     var _this = this;
     this.routes = routes != null ? routes : {};
     History.Adapter.bind(window, 'statechange', function() {
-      console.log(History.getState());
       return _this.checkRoutes(History.getState());
     });
   }

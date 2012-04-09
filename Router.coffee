@@ -12,7 +12,6 @@ class window.Router
 
 	constructor: (@routes = {})->
 		History.Adapter.bind window, 'statechange', ()=>
-			console.log History.getState()
 			@checkRoutes History.getState()
 
 	route: (route, callback)->
