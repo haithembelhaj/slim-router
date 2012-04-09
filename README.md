@@ -8,8 +8,9 @@
 	var router = new Router();
 
 	//Define some routes with their respective callback function
-	router.route('posts/:id', function(id){ console.log(id)});
-	router.route('route/*path', function(path){ console.log(path)});
+	router.route('/posts/:id', function(id){ console.log(id)});
+	router.route('/route/*path', function(path){ console.log(path)});
+	router.route('', function(){ console.log("default route")});
 
 	/* 
 	* Navigate to route
@@ -17,9 +18,9 @@
 	* trigger is by default true and replace is by default false
 	*/
 
-	router.navigate('posts/22');
-	router.navigate('posts/23', false); //ommit calling the callback
-	router.navigate('route/to/heaven', true, false); //just replace without history traceback
+	router.navigate('/posts/22');
+	router.navigate('/posts/23', false); //ommit calling the callback
+	router.navigate('/route/to/heaven', true, false); //just replace without history traceback
 
 	//Navigate throught the History
 	router.go(2); //forward navigation

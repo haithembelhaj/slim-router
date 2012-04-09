@@ -12,6 +12,7 @@ class window.Router
 
 	constructor: (@routes = {})->
 		History.Adapter.bind window, 'statechange', ()=>
+			console.log History.getState()
 			@checkRoutes History.getState()
 
 	route: (route, callback)->
@@ -24,13 +25,11 @@ class window.Router
 			for regexText, callback of @routes
 				regex = new RegExp regexText
 				url = state.title or state.hash
-				url = url.slice(1)
 				if  regex.test url
 					callback.apply(window, regex.exec(url).slice(1))
 		@trigger = true
 
 	navigate : (url, trigger=true, replace=false)->
-		url = "/"+url
 		@trigger = trigger
 		if replace 
 			History.replaceState null, url, url

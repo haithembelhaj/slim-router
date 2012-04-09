@@ -16,6 +16,7 @@ window.Router = (function() {
     var _this = this;
     this.routes = routes != null ? routes : {};
     History.Adapter.bind(window, 'statechange', function() {
+      console.log(History.getState());
       return _this.checkRoutes(History.getState());
     });
   }
@@ -33,7 +34,6 @@ window.Router = (function() {
         callback = _ref[regexText];
         regex = new RegExp(regexText);
         url = state.title || state.hash;
-        url = url.slice(1);
         if (regex.test(url)) callback.apply(window, regex.exec(url).slice(1));
       }
     }
@@ -43,7 +43,6 @@ window.Router = (function() {
   Router.prototype.navigate = function(url, trigger, replace) {
     if (trigger == null) trigger = true;
     if (replace == null) replace = false;
-    url = "/" + url;
     this.trigger = trigger;
     if (replace) {
       return History.replaceState(null, url, url);
