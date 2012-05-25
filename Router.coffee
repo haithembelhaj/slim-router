@@ -23,17 +23,17 @@ class window.Router
 		if @trigger
 			for regexText, callback of @routes
 				regex = new RegExp regexText
-				url = state.title or state.hash
+				url = state.data.url or state.hash
 				if  regex.test url
 					callback.apply(window, regex.exec(url).slice(1))
 		@trigger = true
 
-	navigate : (url, trigger=true, replace=false)->
+	navigate : (url, trigger=true, replace=false, name=null)->
 		@trigger = trigger
 		if replace 
-			History.replaceState null, url, url
+			History.replaceState {'url' : url}, null, url
 		else
-			History.pushState null, url, url
+			History.pushState {'url' : url}, null, url
 
 	go: (num)->
 		History.go num
