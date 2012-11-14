@@ -60,8 +60,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     };
     
     Router.prototype.start = function(url) {
-      if (url == null) url = window.location.pathname;
-      return this.checkRoutes(History.getState());
+      var stateObj = {};
+      if (url != null) stateObj = {data: {url: url}};
+      else stateObj = History.getState();
+      return this.checkRoutes(stateObj);
     };
     
     Router.prototype.go = function(num) {
