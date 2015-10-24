@@ -2,16 +2,16 @@
   "name": "router.js",
   "version": "1.0.0",
   "description": "easy routing for your ajax Web applications",
-  "main": "dist/router.js",
+  "main": "Router.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/karma start"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/haithembelhaj/RouterJs.git"
+    "url": "git+git@github.com:haithembelhaj/router.js.git"
   },
   "keywords": [
     "router",
@@ -21,9 +21,9 @@
   "author": "Haithem Bel Haj <haythem.belhaj@gmail.com> (http://haithembelhaj.github.io)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/haithembelhaj/RouterJs/issues"
+    "url": "git@github.com:haithembelhaj/router.js/issues"
   },
-  "homepage": "https://github.com/haithembelhaj/RouterJs#readme",
+  "homepage": "git@github.com:haithembelhaj/router.js#readme",
   "devDependencies": {
     "chai": "^3.4.0",
     "karma": "^0.13.14",
