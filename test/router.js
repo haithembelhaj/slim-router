@@ -20,6 +20,7 @@ describe('router.js tests', function(){
       done();
     });
 
+
     router.navigate('/test/2');
   })
 
@@ -32,6 +33,9 @@ describe('router.js tests', function(){
 
       expect(id).to.equal('2');
       expect(name).to.equal('haha');
+
+      console.log(router.routes);
+
       done();
     });
 

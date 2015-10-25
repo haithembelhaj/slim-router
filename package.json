@@ -2,7 +2,8 @@
   "name": "router.js",
   "version": "1.0.0",
   "description": "easy routing for your ajax Web applications",
-  "main": "Router.js",
+  "main": "dist/router.js",
+  "jsnext:main": "src/router.js",
   "directories": {
     "test": "test"
   },
