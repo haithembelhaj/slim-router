@@ -1,7 +1,7 @@
 {
-  "name": "router.js",
+  "name": "slim-router",
   "version": "1.0.0",
-  "description": "easy routing for your ajax Web applications",
+  "description": "Easy routing for your ajax Web applications",
   "main": "dist/router.js",
   "jsnext:main": "src/router.js",
   "directories": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+git@github.com:haithembelhaj/router.js.git"
+    "url": "git+git@github.com:haithembelhaj/slim-router.git"
   },
   "keywords": [
     "router",
@@ -24,9 +24,9 @@
   "author": "Haithem Bel Haj <haythem.belhaj@gmail.com> (http://haithembelhaj.github.io)",
   "license": "ISC",
   "bugs": {
-    "url": "git@github.com:haithembelhaj/router.js/issues"
+    "url": "git@github.com:haithembelhaj/slim-router/issues"
   },
-  "homepage": "git@github.com:haithembelhaj/router.js#readme",
+  "homepage": "git@github.com:haithembelhaj/slim-router#readme",
   "devDependencies": {
     "babelify": "^6.4.0",
     "browserify": "^11.2.0",

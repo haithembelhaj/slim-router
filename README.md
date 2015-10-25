@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/haithembelhaj/router.js.svg)](https://travis-ci.org/haithembelhaj/router.js)
-# RouterJs: easy routing for your ajax Web applications
+[![Build Status](https://travis-ci.org/haithembelhaj/slim-router.svg)](https://travis-ci.org/haithembelhaj/slim-router)
+# slim-router: easy routing for your ajax Web applications
 
-[RouterJs](http://haithembelhaj.github.com/RouterJs/) is a simple router for your ajax web apps. It's build upon [History.js](https://github.com/balupton/History.js/) which means that RouterJs supports the HTML5 History Api with a fragment fallback for HTML4 browsers. Highly inspired by the Backbone Router it also supports passing parameters with `:param` and splat parts with `*splat`
+[slim-router](http://haithembelhaj.github.com/slim-router/) is a simple router for your ajax web apps. It's build upon [History.js](https://github.com/balupton/History.js/) which means that RouterJs supports the HTML5 History Api with a fragment fallback for HTML4 browsers. Highly inspired by the Backbone Router it also supports passing parameters with `:param` and splat parts with `*splat`
 
 #Usage
 
@@ -12,7 +12,11 @@
 	router.route('/posts/:id', function(id){ console.log(id)});
 	router.route('/route/*path', function(path){ console.log(path)});
 	router.route('', function(){ console.log("default route")});
-
+	
+	
+	// Start the router
+	router.start();
+		
 	/* 
 	* Navigate to route
 	* the navigate method takes two extra arguments trigger and replace
