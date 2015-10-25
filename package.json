@@ -7,6 +7,8 @@
     "test": "test"
   },
   "scripts": {
+    "start": "node watch",
+    "build": "browserify src/router.js -s Router -t babelify -o dist/router.js && uglifyjs dist/router.js -cmo dist/router.min.js",
     "test": "./node_modules/.bin/karma start --single-run --no-auto-watch"
   },
   "repository": {
@@ -25,6 +27,8 @@
   },
   "homepage": "git@github.com:haithembelhaj/router.js#readme",
   "devDependencies": {
+    "babelify": "^6.4.0",
+    "browserify": "^11.2.0",
     "chai": "^3.4.0",
     "karma": "^0.13.14",
     "karma-chai": "^0.1.0",
@@ -32,7 +36,8 @@
     "karma-mocha": "^0.2.0",
     "karma-phantomjs-launcher": "^0.2.1",
     "mocha": "^2.3.3",
-    "phantomjs": "^1.9.18"
+    "phantomjs": "^1.9.18",
+    "uglify-js": "^2.5.0"
   },
   "dependencies": {
     "history.js": "git+https://github.com/browserstate/history.js.git"

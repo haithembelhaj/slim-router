@@ -9,8 +9,7 @@ module.exports = function (config) {
     frameworks: ['mocha', 'chai'],
 
     files: [
-      'node_modules/history.js/scripts/bundled/html4+html5/native.history.js',
-      'Router.js',
+      'dist/router.js',
       'test/*.js'
     ],
 
