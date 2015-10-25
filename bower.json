@@ -1,0 +1,29 @@
+{
+  "name": "router.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/haithembelhaj/router.js",
+  "authors": [
+    "Haithem Bel Haj <haythem.belhaj@gmail.com>"
+  ],
+  "description": "easy routing for your ajax Web applications",
+  "main": "dist/router.js",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "router",
+    "browser",
+    "history.js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
