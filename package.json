@@ -1,6 +1,6 @@
 {
   "name": "slim-router",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easy routing for your ajax Web applications",
   "main": "dist/router.js",
   "jsnext:main": "src/router.js",
@@ -36,8 +36,10 @@
     "karma-chrome-launcher": "^0.2.1",
     "karma-mocha": "^0.2.0",
     "karma-phantomjs-launcher": "^0.2.1",
+    "karma-sinon": "^1.0.4",
     "mocha": "^2.3.3",
     "phantomjs": "^1.9.18",
+    "sinon": "^1.17.2",
     "uglify-js": "^2.5.0"
   },
   "dependencies": {

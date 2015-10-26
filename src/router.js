@@ -22,9 +22,9 @@ export default class Router{
   checkRoutes(state) {
 
     let url = state.data.url || state.hash;
+    let trigger = state.data.trigger? state.data.trigger: true;
 
-    if(!this.trigger)
-      return this.trigger = true;
+    if(!trigger) return;
 
     Object.keys(this.routes).forEach((key)=>{
 
@@ -33,22 +33,16 @@ export default class Router{
       if (regex.test(url))
         this.routes[key](...regex.exec(url).slice(1));
     });
-
   }
 
-  navigate(url, trigger = true, replace = false) {
+  navigate(url, trigger = true, replace = false, title = null) {
 
-    this.trigger = trigger;
-
-    if(replace)
-      return History.replaceState({url}, null, url);
-
-    return History.pushState({url}, null, url);
+    return History[replace? 'replaceState': 'pushState']({url, trigger}, title, url);
   }
 
   start(url) {
 
-    let stateObj = url? {data: {url}}: History.getState();
+    let stateObj = url? {data: {url}} : History.getState();
 
     this.checkRoutes(stateObj);
   }

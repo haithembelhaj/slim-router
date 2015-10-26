@@ -47,8 +47,9 @@ var Router = (function () {
       var _this2 = this;
 
       var url = state.data.url || state.hash;
+      var trigger = state.data.trigger ? state.data.trigger : true;
 
-      if (!this.trigger) return this.trigger = true;
+      if (!trigger) return;
 
       Object.keys(this.routes).forEach(function (key) {
         var _routes;
@@ -63,12 +64,9 @@ var Router = (function () {
     value: function navigate(url) {
       var trigger = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
       var replace = arguments.length <= 2 || arguments[2] === undefined ? false : arguments[2];
+      var title = arguments.length <= 3 || arguments[3] === undefined ? null : arguments[3];
 
-      this.trigger = trigger;
-
-      if (replace) return History.replaceState({ url: url }, null, url);
-
-      return History.pushState({ url: url }, null, url);
+      return History[replace ? 'replaceState' : 'pushState']({ url: url, trigger: trigger }, title, url);
     }
   }, {
     key: 'start',

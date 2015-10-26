@@ -34,8 +34,6 @@ describe('router.js tests', function(){
       expect(id).to.equal('2');
       expect(name).to.equal('haha');
 
-      console.log(router.routes);
-
       done();
     });
 
@@ -54,5 +52,20 @@ describe('router.js tests', function(){
     });
 
     router.navigate('/test/2/lorem/ipsum/2');
+  })
+
+  it('should omit trigger', function(done){
+
+    var router = new Router();
+
+    var callback = sinon.spy();
+
+    router.route('/test', callback);
+
+    router.navigate('/test', false);
+
+    expect(callback.called).to.equal(false);
+
+    done();
   })
 });

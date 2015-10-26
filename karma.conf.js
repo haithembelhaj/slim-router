@@ -6,7 +6,7 @@ module.exports = function (config) {
 
     basePath: '',
 
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['mocha', 'chai', 'sinon'],
 
     files: [
       'dist/router.js',
