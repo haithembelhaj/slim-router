@@ -15,7 +15,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 require('../node_modules/history.js/scripts/bundled/html4+html5/native.history.js');
 
-var namedParam = /:\w+/g;
+var escapeRegExp = /[\-{}\[\]+?.,\\\^$|#\s]/g;
+var namedParam = /(\(\?)?:\w+/g;
 var splatParam = /\*\w+/g;
 
 var Router = (function () {
@@ -37,9 +38,9 @@ var Router = (function () {
     key: 'route',
     value: function route(_route, callback) {
 
-      _route = _route.replace(namedParam, '([^\/]+)').replace(splatParam, '(.*?)');
+      _route = _route.replace(escapeRegExp, '\\$&').replace(namedParam, '([^\/?]+)').replace(splatParam, '([^?].*?)');
 
-      this.routes["^" + _route + "$"] = callback;
+      this.routes["^" + _route + "(?:\\?([\\s\\S]*))?$"] = callback;
     }
   }, {
     key: 'checkRoutes',
@@ -47,7 +48,7 @@ var Router = (function () {
       var _this2 = this;
 
       var url = state.data.url || state.hash;
-      var trigger = state.data.trigger ? state.data.trigger : true;
+      var trigger = state.data.trigger !== undefined ? state.data.trigger : true;
 
       if (!trigger) return;
 

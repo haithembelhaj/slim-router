@@ -1,6 +1,7 @@
 require('../node_modules/history.js/scripts/bundled/html4+html5/native.history.js');
 
-const namedParam = /:\w+/g;
+const escapeRegExp = /[\-{}\[\]+?.,\\\^$|#\s]/g;
+const namedParam = /(\(\?)?:\w+/g;
 const splatParam = /\*\w+/g;
 
 export default class Router{
@@ -14,15 +15,18 @@ export default class Router{
 
   route(route, callback) {
 
-    route = route.replace(namedParam, '([^\/]+)').replace(splatParam, '(.*?)');
+    route = route
+      .replace(escapeRegExp, '\\$&')
+      .replace(namedParam, '([^\/?]+)')
+      .replace(splatParam, '([^?].*?)');
 
-    this.routes["^" + route + "$"] = callback;
+    this.routes["^" + route + "(?:\\?([\\s\\S]*))?$"] = callback;
   }
 
   checkRoutes(state) {
 
     let url = state.data.url || state.hash;
-    let trigger = state.data.trigger? state.data.trigger: true;
+    let trigger = state.data.trigger !== undefined? state.data.trigger: true;
 
     if(!trigger) return;
 
