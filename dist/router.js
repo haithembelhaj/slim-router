@@ -15,6 +15,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 require('../node_modules/history.js/scripts/bundled/html4+html5/native.history.js');
 
+var optionalParam = /\((.*?)\)/g;
 var escapeRegExp = /[\-{}\[\]+?.,\\\^$|#\s]/g;
 var namedParam = /(\(\?)?:\w+/g;
 var splatParam = /\*\w+/g;
@@ -38,7 +39,9 @@ var Router = (function () {
     key: 'route',
     value: function route(_route, callback) {
 
-      _route = _route.replace(escapeRegExp, '\\$&').replace(namedParam, '([^\/?]+)').replace(splatParam, '([^?].*?)');
+      _route = _route.replace(escapeRegExp, '\\$&').replace(optionalParam, '(?:$1)?').replace(namedParam, function (match, optional) {
+        return optional ? match : '([^/?]+)';
+      }).replace(splatParam, '([^?].*?)');
 
       this.routes["^" + _route + "(?:\\?([\\s\\S]*))?$"] = callback;
     }

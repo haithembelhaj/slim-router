@@ -1,5 +1,6 @@
 require('../node_modules/history.js/scripts/bundled/html4+html5/native.history.js');
 
+const optionalParam = /\((.*?)\)/g;
 const escapeRegExp = /[\-{}\[\]+?.,\\\^$|#\s]/g;
 const namedParam = /(\(\?)?:\w+/g;
 const splatParam = /\*\w+/g;
@@ -17,7 +18,8 @@ export default class Router{
 
     route = route
       .replace(escapeRegExp, '\\$&')
-      .replace(namedParam, '([^\/?]+)')
+      .replace(optionalParam, '(?:$1)?')
+      .replace(namedParam, (match, optional)=> optional ? match : '([^/?]+)')
       .replace(splatParam, '([^?].*?)');
 
     this.routes["^" + route + "(?:\\?([\\s\\S]*))?$"] = callback;
